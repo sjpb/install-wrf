@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export WRF_BUILD_DIR=~/wrf-build-gcc9-ompi3
+module purge
 module load spack/git
 source $SPACK_ROOT/share/spack/setup-env.sh
 module load gcc-9.1.0-gcc-7.2.0-m72nqcu
@@ -60,5 +61,5 @@ cd WRFV3.8.1
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 ./configure <<< 34 # gcc+dmpar
 sed -i 's/DM_CC           =       mpicc/DM_CC           =       mpicc -DMPI2_SUPPORT/' configure.wrf
-
+./clean
 ./compile -j20 em_real >& log.compile
