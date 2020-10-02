@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export WRF_BUILD_DIR=~/wrf-build-icc19-impi19
+export WRF_BUILD_DIR=~/wrf-build-gcc9-ompi3
 module load spack/git
 source $SPACK_ROOT/share/spack/setup-env.sh
 module load gcc-9.1.0-gcc-7.2.0-m72nqcu
