@@ -40,12 +40,12 @@ cd WRFV3.8.1
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 ./configure <<< 15 # INTEL (ifort/icc)
 sed -i 's/DM_CC           =       mpicc/DM_CC           =       mpicc -DMPI2_SUPPORT/' configure.wrf
-# TODO: based on teams advice try
+# following based on teams advice try
 # Remove '-xHost':
-#sed 's/-xHost //' -i configure.wrf
+sed 's/-xHost //' -i configure.wrf
 # Change architecture flag:
-#sed "s/-xCORE-AVX2/-march=core-avx2/" -i configure.wrf
+sed "s/-xCORE-AVX2/-march=core-avx2/" -i configure.wrf
 # Fix -openmp:
-#sed 's/-openmp /-qopenmp -qoverride-limits /' -i configure.wrf
+sed 's/-openmp /-qopenmp -qoverride-limits /' -i configure.wrf
 
 ./compile em_real >& log.compile
