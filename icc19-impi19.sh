@@ -3,7 +3,7 @@
 export WRF_BUILD_DIR=~/wrf-build-icc19-impi19
 module load rhel7/default-ccl
 
-echo Using script ${0} at $(git describe --always --dirty) > $WRF_BUILD_DIR/README.sh
+echo Using script ${0} at $(git -C  ${0%/*} describe --always --dirty) > $WRF_BUILD_DIR/README
 
 set -x #echo on
 : "${WRF_BUILD_DIR:?Need to set WRF_BUILD_DIR non-empty}"

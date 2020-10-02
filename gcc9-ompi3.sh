@@ -6,7 +6,7 @@ source $SPACK_ROOT/share/spack/setup-env.sh
 module load gcc-9.1.0-gcc-7.2.0-m72nqcu
 module load openmpi-3.1.6-gcc-9.1.0-omffmfv
 
-echo Using script ${0} at $(git describe --always --dirty) > $WRF_BUILD_DIR/README.sh
+echo Using script ${0} at $(git -C  ${0%/*} describe --always --dirty) > $WRF_BUILD_DIR/README
 
 set -x #echo on
 : "${WRF_BUILD_DIR:?Need to set WRF_BUILD_DIR non-empty}"
